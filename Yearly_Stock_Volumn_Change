@@ -1,0 +1,32 @@
+Sub Yearly_Stock_Volumn_Calculations():
+Dim Yearly_Change As Double
+Dim Total_Stock_Volume As Double
+Dim Ticker As String
+
+Dim Summary_Table As Integer
+
+Summary_Table = 2
+
+For I = 2 To 705714
+
+If Cells(I + 1, 1).Value <> Cells(I, 1).Value Then
+
+Ticker = Cells(I, 1).Value
+
+Range("I" & Summary_Table).Value = Ticker
+
+Total_Stock_Volume = Total_Stock_Volume + Cells(I, 7).Value
+
+Range("L" & Summary_Table).Value = Total_Stock_Volume
+
+Summary_Table = Summary_Table + 1
+
+Else
+
+Total_Stock_Volume = Total_Stock_Volume + Cells(I, 7).Value
+
+End If
+
+Next I
+
+End Sub
